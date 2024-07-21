@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:innosetup/desktopicon.dart';
 import 'package:innosetup/innosetup.dart';
+import 'package:innosetup/registry.dart';
 
 /// Define name of the installer.
 class InnoSetupName {
@@ -52,6 +53,7 @@ class InnoSetup {
     required this.files,
     this.desktopIcon = false,
     this.runAfterInstall = true,
+    this.registries = const [],
   });
 
   /// App details.
@@ -87,6 +89,9 @@ class InnoSetup {
   /// Run app after installing.
   final bool runAfterInstall;
 
+  /// Define registries to be added when installing
+  final List<InnoSetupRegisty> registries;
+
   /// Make the Inno Setup script. (innosetup.iss)
   Future<void> make({bool dry = false}) async {
     final iss = StringBuffer('''
@@ -100,6 +105,8 @@ $location
 ${license ?? ''}
 
 ${InnoSetupLanguagesBuilder(languages)}
+
+${registries.isNotEmpty ? InnoSetupRegistyBuilder(registries) : ''}
 
 [Tasks]
 ${desktopIcon ? const InnoSetupDesktopIconBuilder() : ''}
