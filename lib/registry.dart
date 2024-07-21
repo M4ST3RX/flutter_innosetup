@@ -36,7 +36,7 @@ class InnoSetupRegistyBuilder {
     final code = StringBuffer('[Registry]\n');
 
     for (final registry in _registries) {
-      code.writeln('Root: ${registry.root}; Subkey: "${registry.subkey}"; ValueType: ${registry.type}; ValueName: "${registry.name}"; ValueData: "${registry.value}"');
+      code.writeln('Root: ${registry.root}; Subkey: "${registry.subkey}"; ValueType: ${registry.type}; ValueName: "${registry.name}"; ValueData: "${registry.value ?? ''}"');
     }
 
     return '$code';
