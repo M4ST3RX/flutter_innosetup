@@ -1,6 +1,6 @@
-class InnoSetupRegisty {
+class InnoSetupRegistry {
   /// Define optional registries
-  const InnoSetupRegisty({
+  const InnoSetupRegistry({
     required this.root,
     required this.subkey,
     required this.type,
@@ -25,11 +25,11 @@ class InnoSetupRegisty {
 }
 
 // ignore: public_member_api_docs
-class InnoSetupRegistyBuilder {
+class InnoSetupRegistryBuilder {
   // ignore: public_member_api_docs
-  const InnoSetupRegistyBuilder(this._registries);
+  const InnoSetupRegistryBuilder(this._registries);
 
-  final List<InnoSetupRegisty> _registries;
+  final List<InnoSetupRegistry> _registries;
 
   @override
   String toString() {

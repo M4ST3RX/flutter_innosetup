@@ -90,7 +90,7 @@ class InnoSetup {
   final bool runAfterInstall;
 
   /// Define registries to be added when installing
-  final List<InnoSetupRegisty> registries;
+  final List<InnoSetupRegistry> registries;
 
   /// Make the Inno Setup script. (innosetup.iss)
   Future<void> make({bool dry = false}) async {
@@ -106,7 +106,7 @@ ${license ?? ''}
 
 ${InnoSetupLanguagesBuilder(languages)}
 
-${registries.isNotEmpty ? InnoSetupRegistyBuilder(registries) : ''}
+${registries.isNotEmpty ? InnoSetupRegistryBuilder(registries) : ''}
 
 [Tasks]
 ${desktopIcon ? const InnoSetupDesktopIconBuilder() : ''}
